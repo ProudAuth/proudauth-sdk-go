@@ -8,9 +8,12 @@ and automate the administration API.
 Minimum Go: **1.27.1**.
 Apache-2.0. The only third-party module is `go-jose/v4` 4.1.5.
 
-[Documentation](https://proudauth.com/docs/) ·
-[Service](https://github.com/proudbase/proudauth) ·
+[Documentation](https://docs.proudauth.com/) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
+The service is being extracted into `proudbase/proudauth`. Documentation will
+move to `proudauth.com/docs/` with a compatibility redirect after the website
+migration; the link above uses the working documentation host today.
 
 ## Quick start
 
@@ -102,8 +105,8 @@ reject sender-constrained tokens; a request-level sender verifier must validate
 the bound proof. Key records by issuer/tenant and subject, not email. Compare
 organization claims with stored resource ownership, never request-supplied IDs.
 
-[Resource-server contract](https://github.com/proudbase/proudauth/blob/main/docs/integrations/resource-servers.md) ·
-[SDK compatibility policy](https://github.com/proudbase/proudauth/blob/main/docs/integrations/sdk-compatibility.md)
+[Resource-server contract](https://docs.proudauth.com/integrations/resource-servers/) ·
+[SDK compatibility policy](https://docs.proudauth.com/integrations/sdk-compatibility/)
 
 ## Testing and provenance
 
