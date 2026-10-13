@@ -8,12 +8,15 @@ and automate the administration API.
 Minimum Go: **1.27.1**.
 Apache-2.0. The only third-party module is `go-jose/v4` 4.1.5.
 
-[Documentation](https://docs.proudauth.com/) ·
+[Documentation](https://proudauth.com/docs/) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
-The service is being extracted into `proudbase/proudauth`. Documentation will
-move to `proudauth.com/docs/` with a compatibility redirect after the website
-migration; the link above uses the working documentation host today.
+[![CI](https://github.com/proudbase/proudauth-sdk-go/actions/workflows/ci.yml/badge.svg)](https://github.com/proudbase/proudauth-sdk-go/actions/workflows/ci.yml)
+
+The identity service is maintained separately in
+[`proudbase/proudauth`](https://github.com/proudbase/proudauth).
+You deploy it on your own infrastructure; `proudauth.com` hosts the project
+website and documentation. Configure the SDK with your instance's exact issuer.
 
 ## Quick start
 
@@ -65,7 +68,7 @@ import (
 
 func main() {
     auth, err := verifier.New(verifier.Config{
-        Issuer: "https://api.proudauth.com/realms/main",
+        Issuer: "https://identity.example.com/realms/main", // your instance
         Audience: "https://orders.example.com",
     })
     if err != nil {
@@ -105,8 +108,8 @@ reject sender-constrained tokens; a request-level sender verifier must validate
 the bound proof. Key records by issuer/tenant and subject, not email. Compare
 organization claims with stored resource ownership, never request-supplied IDs.
 
-[Resource-server contract](https://docs.proudauth.com/integrations/resource-servers/) ·
-[SDK compatibility policy](https://docs.proudauth.com/integrations/sdk-compatibility/)
+[Resource-server contract](https://proudauth.com/docs/integrations/resource-servers/) ·
+[SDK compatibility policy](https://proudauth.com/docs/integrations/sdk-compatibility/)
 
 ## Testing and provenance
 
@@ -120,7 +123,7 @@ go test ./verifier -run '^$' -fuzz '^FuzzSenderURLNormalization$' -fuzztime 30s
 ```
 
 The suite uses synthetic shared fixtures and loopback mock servers. It does not
-call the public deployment. `testdata/contracts/` contains the same 22 accepted
+call a live identity instance. `testdata/contracts/` contains the same 22 accepted
 and rejected access-token cases used by the other SDKs, plus support-operation
 classification rules. Keys in test data are test-only. `testdata/manifest.json`
 pins their bytes; `SOURCE-MANIFEST.json` records the source checkout HEAD and

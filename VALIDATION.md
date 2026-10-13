@@ -24,7 +24,11 @@ extra timed fuzz runs were not executed during this bounded local phase.
 
 Go module: `github.com/proudbase/proudauth-sdk-go`; runtime dependency:
 `github.com/go-jose/go-jose/v4` 4.1.5. No registry release or tag was published
-by this staging work. GitHub CI has been prepared but has not run yet.
+by this staging work. The subsequent [public-source CI](https://github.com/proudbase/proudauth-sdk-go/actions/runs/38452064468)
+passed at `116f9fa19d0b0174a0c270763e2ef6abf872233b`, including the race
+suite and both 30-second fuzz smoke checks. README links and issuer examples now
+use the canonical project documentation and an operator-owned identity domain;
+runtime, module and contract bytes are unchanged.
 
 Excluded: original .git history, local credentials, deployment state, SDK caches,
 compiled outputs, node_modules, database/image archives and benchmark seed files.
