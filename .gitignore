@@ -1,0 +1,11 @@
+/.DS_Store
+/coverage.out
+/coverage.html
+/*.test
+/go.work
+/go.work.sum
+
+.env
+.env.*
+!.env.example
+/secrets/

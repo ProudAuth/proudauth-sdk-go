@@ -1,0 +1,8 @@
+ProudAuth SDK for Go
+Copyright 2026 The ProudAuth Authors
+
+Extracted from the ProudAuth working tree with original Apache-2.0 attribution.
+SOURCE-MANIFEST.json records the pre-migration source HEAD and input hashes.
+No package registry release has been published by this extraction.
+
+Runtime dependency: github.com/go-jose/go-jose/v4 4.1.5 (Apache-2.0).

@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "source_checkout_head": "5ff6ddb852b572a05d4b1b5e6afdf2ecc1350a11",
+  "source_kind": "pre-migration working-tree snapshot; includes unpublished changes",
+  "intended_repository": "https://github.com/proudbase/proudauth-sdk-go",
+  "package_version": "0.2.0",
+  "registry_published": false,
+  "sources": [
+    {
+      "source": "sdk/go/admin/admin.go",
+      "destination": "admin/admin.go",
+      "sha256": "a63e73055c6decc1090ca822ca8d30337750c81125e8fefdcb9429ce301d7ad3"
+    },
+    {
+      "source": "sdk/go/admin/secret.go",
+      "destination": "admin/secret.go",
+      "sha256": "8860ae2ceca81db7248b634b9e9c04ffef5e78ccb71edde4f4c710e717e14616"
+    },
+    {
+      "source": "sdk/go/admin/secret_test.go",
+      "destination": "admin/secret_test.go",
+      "sha256": "274315b3419c84c2098e08ee1686c80050c1dd87fe53c423156255ec3012f359"
+    },
+    {
+      "source": "sdk/go/internal/httpclient/client.go",
+      "destination": "internal/httpclient/client.go",
+      "sha256": "9694953e3b1cb5e599e2cdf73be2ae89f1d26918a245a393e1933cb7eac13802"
+    },
+    {
+      "source": "sdk/go/internal/httpclient/client_test.go",
+      "destination": "internal/httpclient/client_test.go",
+      "sha256": "29bb728b858a01f41c98e9710095a905501c59ef32026cadd558d1479646e482"
+    },
+    {
+      "source": "sdk/go/oidcclient/client.go",
+      "destination": "oidcclient/client.go",
+      "sha256": "138fe55e973e955255a7cc5178113dc0da00a4e4ddf24343f849e360a0164e6a"
+    },
+    {
+      "source": "sdk/go/oidcclient/state_test.go",
+      "destination": "oidcclient/state_test.go",
+      "sha256": "f354469a6393ed7db3648fb6bb09ea48b6a6863553d92ff23191079b7cf04c23"
+    },
+    {
+      "source": "sdk/go/verifier/boundedstate.go",
+      "destination": "verifier/boundedstate.go",
+      "sha256": "6af3500fa4ca971c11ceb66950705997738be19530674a1d00d6e8aa0cc6a48b"
+    },
+    {
+      "source": "sdk/go/verifier/boundedstate_test.go",
+      "destination": "verifier/boundedstate_test.go",
+      "sha256": "04ab3282bb89480b05d76b5979af949c06d21401654fd16350fc908eb4d9912a"
+    },
+    {
+      "source": "sdk/go/verifier/fixtures_test.go",
+      "destination": "verifier/fixtures_test.go",
+      "sha256": "e5808ed2a2bd519936b7bebf7e949aad5e6e47adad1488a3f160f415a8736853"
+    },
+    {
+      "source": "sdk/go/verifier/fuzz_test.go",
+      "destination": "verifier/fuzz_test.go",
+      "sha256": "e4fa1986265e641d3ce12efbbaea90866ac58b4e2c3a5423c2af9e91fb8af0e9"
+    },
+    {
+      "source": "sdk/go/verifier/introspect.go",
+      "destination": "verifier/introspect.go",
+      "sha256": "10e250f2dd5d95979b1e4e73f49ba0e2e5692526dca2cb03e450e274928ea61e"
+    },
+    {
+      "source": "sdk/go/verifier/metadata.go",
+      "destination": "verifier/metadata.go",
+      "sha256": "16908c116e7ba7e0156d96b8ad8ddc68664a2ffd3f014b1bb31190657940303d"
+    },
+    {
+      "source": "sdk/go/verifier/metadata_test.go",
+      "destination": "verifier/metadata_test.go",
+      "sha256": "1d0633c5ff64d431048ee902e4999887dcfd8ae864fb6862fe2d3322f0413c39"
+    },
+    {
+      "source": "sdk/go/verifier/multi.go",
+      "destination": "verifier/multi.go",
+      "sha256": "2f3506f5c79ed32a8006fa743db156b2707113347acc09c989f59d979247163f"
+    },
+    {
+      "source": "sdk/go/verifier/multi_test.go",
+      "destination": "verifier/multi_test.go",
+      "sha256": "297e278ef2ce44d708be4a7387e3631edef4e1af9a954b90317d74c938acedef"
+    },
+    {
+      "source": "sdk/go/verifier/sender.go",
+      "destination": "verifier/sender.go",
+      "sha256": "58f1bd34a5a398eb3450b0c35b3abab6aff30002bd25a7df25d42352b58d7a80"
+    },
+    {
+      "source": "sdk/go/verifier/sender_test.go",
+      "destination": "verifier/sender_test.go",
+      "sha256": "604664c417011f0c3629d1b36472a0bf7eaafaace07600fe2b922b928234eefd"
+    },
+    {
+      "source": "sdk/go/verifier/support_test.go",
+      "destination": "verifier/support_test.go",
+      "sha256": "a4a97f01da6f1bca13758bc0985801656e121c110559be09f61fa821a8083961"
+    },
+    {
+      "source": "sdk/go/verifier/testdata/fuzz/FuzzSenderURLNormalization/f13d0bb849c98dfc",
+      "destination": "verifier/testdata/fuzz/FuzzSenderURLNormalization/f13d0bb849c98dfc",
+      "sha256": "f13d0bb849c98dfca19c4b7c8a2874c7355fb0c354afd6624f3438a5da4944aa"
+    },
+    {
+      "source": "sdk/go/verifier/verifier.go",
+      "destination": "verifier/verifier.go",
+      "sha256": "76103a01505ba824be15259bd424ee6bc89ad6527bd9305eefd4a439e8e1a802"
+    },
+    {
+      "source": "sdk/fixtures/README.md",
+      "destination": "testdata/contracts/README.md",
+      "sha256": "75eb9c59cbcc9663b7c9ae88b2e9ea8fca01eb05e224d857cc5aec629876a718"
+    },
+    {
+      "source": "sdk/fixtures/access-tokens/cases.json",
+      "destination": "testdata/contracts/access-tokens/cases.json",
+      "sha256": "2140c779c7267b225713b8f1b198676822fc31ebe19f674b710279163a0eeba3"
+    },
+    {
+      "source": "sdk/fixtures/support-operations/cases.json",
+      "destination": "testdata/contracts/support-operations/cases.json",
+      "sha256": "5a6d2905db711c8728fe88f6707d76fc22d973ea5d2117ffe67840c4d98cf749"
+    },
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  ]
+}

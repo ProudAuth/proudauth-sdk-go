@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_checkout_head": "5ff6ddb852b572a05d4b1b5e6afdf2ecc1350a11",
+  "source_kind": "pre-migration working-tree snapshot",
+  "contracts_owner": "https://github.com/proudbase/proudauth",
+  "files": [
+    {
+      "path": "testdata/README.md",
+      "sha256": "433b270c4bc77c72d72d119de107754da912e59611e5d777161c48a18f25d6a9"
+    },
+    {
+      "path": "testdata/contracts/README.md",
+      "sha256": "75eb9c59cbcc9663b7c9ae88b2e9ea8fca01eb05e224d857cc5aec629876a718"
+    },
+    {
+      "path": "testdata/contracts/access-tokens/cases.json",
+      "sha256": "2140c779c7267b225713b8f1b198676822fc31ebe19f674b710279163a0eeba3"
+    },
+    {
+      "path": "testdata/contracts/support-operations/cases.json",
+      "sha256": "5a6d2905db711c8728fe88f6707d76fc22d973ea5d2117ffe67840c4d98cf749"
+    }
+  ]
+}

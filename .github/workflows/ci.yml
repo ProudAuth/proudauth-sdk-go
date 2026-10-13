@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Verify vendored contracts
+        run: python3 scripts/check-contracts.py
+      - name: Verify module and formatting
+        run: |
+          go mod verify
+          test -z "$(gofmt -l admin internal oidcclient verifier)"
+          go vet ./...
+      - name: Unit, negative, concurrency and shared-fixture tests
+        run: go test -race -count=1 ./...
+      - name: Verifier fuzz smoke
+        run: |
+          go test ./verifier -run '^$' -fuzz '^FuzzVerify$' -fuzztime 30s
+          go test ./verifier -run '^$' -fuzz '^FuzzSenderURLNormalization$' -fuzztime 30s
