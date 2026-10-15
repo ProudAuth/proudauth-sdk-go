@@ -1,3 +1,14 @@
+<p align="center">
+  <a href="https://proudauth.com"><img src="https://raw.githubusercontent.com/ProudAuth/.github/main/assets/banner-proudauth-sdk-go.png" alt="ProudAuth SDK for Go" width="100%"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/ProudAuth/proudauth-sdk-go"><img alt="Go" src="https://img.shields.io/badge/Go-SDK-3ee6b0?logo=go&logoColor=3ee6b0&style=for-the-badge&labelColor=06120e"></a>
+  <a href="https://github.com/ProudAuth/proudauth-sdk-go/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/ProudAuth/proudauth-sdk-go/ci.yml?branch=main&label=ci&style=for-the-badge&labelColor=06120e"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-3ee6b0?style=for-the-badge&labelColor=06120e"></a>
+  <a href="https://proudauth.com/docs/sdks/go-reference/"><img alt="Documentation" src="https://img.shields.io/badge/docs-proudauth.com-3ee6b0?style=for-the-badge&labelColor=06120e"></a>
+</p>
+
 # ProudAuth SDK for Go
 
 First-party backend SDK for ProudAuth: verify access tokens, apply live
@@ -10,8 +21,6 @@ Apache-2.0. The only third-party module is `go-jose/v4` 4.1.5.
 
 [Documentation](https://proudauth.com/docs/) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
-
-[![CI](https://github.com/proudauth/proudauth-sdk-go/actions/workflows/ci.yml/badge.svg)](https://github.com/proudauth/proudauth-sdk-go/actions/workflows/ci.yml)
 
 The identity service is maintained separately in
 [`proudauth/proudauth`](https://github.com/proudauth/proudauth).
