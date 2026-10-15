@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/proudbase/proudauth-sdk-go/internal/httpclient"
+	"github.com/proudauth/proudauth-sdk-go/internal/httpclient"
 )
 
 // Problem is an RFC 9457 problem returned by the API.

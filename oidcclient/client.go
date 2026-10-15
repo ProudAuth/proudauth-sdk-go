@@ -24,7 +24,7 @@ import (
 
 	"github.com/go-jose/go-jose/v4"
 	"github.com/go-jose/go-jose/v4/jwt"
-	"github.com/proudbase/proudauth-sdk-go/internal/httpclient"
+	"github.com/proudauth/proudauth-sdk-go/internal/httpclient"
 )
 
 // Errors.

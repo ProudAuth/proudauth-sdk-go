@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/proudbase/proudauth-sdk-go/internal/httpclient"
+	"github.com/proudauth/proudauth-sdk-go/internal/httpclient"
 )
 
 // Introspector verifies tokens online against the identity provider (strict-online

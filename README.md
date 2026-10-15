@@ -11,10 +11,10 @@ Apache-2.0. The only third-party module is `go-jose/v4` 4.1.5.
 [Documentation](https://proudauth.com/docs/) ·
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
-[![CI](https://github.com/proudbase/proudauth-sdk-go/actions/workflows/ci.yml/badge.svg)](https://github.com/proudbase/proudauth-sdk-go/actions/workflows/ci.yml)
+[![CI](https://github.com/proudauth/proudauth-sdk-go/actions/workflows/ci.yml/badge.svg)](https://github.com/proudauth/proudauth-sdk-go/actions/workflows/ci.yml)
 
 The identity service is maintained separately in
-[`proudbase/proudauth`](https://github.com/proudbase/proudauth).
+[`proudauth/proudauth`](https://github.com/proudauth/proudauth).
 You deploy it on your own infrastructure; `proudauth.com` hosts the project
 website and documentation. Configure the SDK with your instance's exact issuer.
 
@@ -23,7 +23,7 @@ website and documentation. Configure the SDK with your instance's exact issuer.
 Clone the source and run its checks from the repository root:
 
 ```sh
-git clone https://github.com/proudbase/proudauth-sdk-go.git
+git clone https://github.com/proudauth/proudauth-sdk-go.git
 cd proudauth-sdk-go
 python3 scripts/check-contracts.py
 go test -race ./...
@@ -32,14 +32,14 @@ go test -race ./...
 Install the development revision into your application:
 
 ```sh
-go get github.com/proudbase/proudauth-sdk-go@main
+go get github.com/proudauth/proudauth-sdk-go@main
 ```
 
 Go records the resolved immutable revision in your `go.mod` and `go.sum`.
 Use a reviewed release tag when tagged releases become available. For local
 development, a Go workspace can include your application and this module.
 
-Imports use `github.com/proudbase/proudauth-sdk-go/verifier`, `/oidcclient`
+Imports use `github.com/proudauth/proudauth-sdk-go/verifier`, `/oidcclient`
 and `/admin`. They no longer use the monorepo's `github.com/proudauth/sdk/go`.
 
 ## Packages
@@ -63,7 +63,7 @@ import (
     "log"
     "net/http"
 
-    "github.com/proudbase/proudauth-sdk-go/verifier"
+    "github.com/proudauth/proudauth-sdk-go/verifier"
 )
 
 func main() {

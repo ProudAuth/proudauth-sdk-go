@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source_checkout_head": "5ff6ddb852b572a05d4b1b5e6afdf2ecc1350a11",
   "source_kind": "pre-migration working-tree snapshot",
-  "contracts_owner": "https://github.com/proudbase/proudauth",
+  "contracts_owner": "https://github.com/proudauth/proudauth",
   "files": [
     {
       "path": "testdata/README.md",
