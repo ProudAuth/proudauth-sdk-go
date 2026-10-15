@@ -1,4 +1,4 @@
-module github.com/proudbase/proudauth-sdk-go
+module github.com/proudauth/proudauth-sdk-go
 
 go 1.27.1
 

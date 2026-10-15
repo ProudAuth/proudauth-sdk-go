@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/proudbase/proudauth-sdk-go/internal/httpclient"
+	"github.com/proudauth/proudauth-sdk-go/internal/httpclient"
 )
 
 // Bounded-state verification (SDK-002) is the middle consistency mode between
