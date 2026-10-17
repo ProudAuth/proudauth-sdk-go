@@ -17,12 +17,21 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        # The declared floor (go.mod) and the two later releases.
+        go: ["1.25.x", "1.26.x", "1.27.x"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
-          go-version-file: go.mod
+          go-version: ${{ matrix.go }}
           cache: true
+      - name: Declared floor matches the oldest tested Go
+        run: |
+          floor=$(sed -n 's/^go \([0-9.]*\)$/\1/p' go.mod)
+          test "$floor" = "1.25" || { echo "go.mod declares go $floor; the CI matrix tests 1.25 as the floor"; exit 1; }
       - name: Verify vendored contracts
         run: python3 scripts/check-contracts.py
       - name: Verify module and formatting

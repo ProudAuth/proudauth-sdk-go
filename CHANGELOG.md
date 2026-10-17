@@ -5,6 +5,19 @@ will use semantic versioning; the initial 0.x API may change between minor versi
 
 ## Unreleased — 0.2.0 standalone extraction
 
+### Known limitations
+
+- A running verifier keeps a retired or compromised signing key trusted until
+  the process restarts: the JWKS cache has no expiry, no refresh or rejection
+  method, and `BoundedState` ignores `signing_key.rotated`. Restart resource
+  servers after an emergency rotation; 0.3.0 adds key expiry, refresh and
+  rejection.
+
+### Changed
+
+- The module requires Go 1.25 instead of Go 1.27.1, and CI tests Go 1.25,
+  1.26 and 1.27.
+
 ### Added
 
 - Independent repository layout, root-level package metadata and CI.
