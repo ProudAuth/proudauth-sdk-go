@@ -12,6 +12,7 @@ import (
 	"crypto/x509"
 	"encoding/base64"
 	"encoding/json"
+	"net"
 	"net/http"
 	"net/url"
 	"strings"
@@ -339,12 +340,35 @@ func (s *SenderVerifier) verifyProof(r *http.Request, accessToken, proof, bindin
 	return nil
 }
 
+// validProofHost reports whether the URL's authority is a host a proof may
+// name: a bracketed IP literal (with an optional zone) or a DNS name of
+// letters, digits, hyphens and dots, with an optional numeric port. net/url
+// accepts authorities such as "::443" (hostname ":"), which would normalize
+// to a URL with no host; the proof is invalid instead.
+func validProofHost(u *url.URL) bool {
+	hostname := u.Hostname()
+	if hostname == "" {
+		return false
+	}
+	if strings.HasPrefix(u.Host, "[") {
+		ip, _, _ := strings.Cut(hostname, "%")
+		return net.ParseIP(ip) != nil && strings.Contains(ip, ":")
+	}
+	for i := 0; i < len(hostname); i++ {
+		b := hostname[i]
+		if !(b >= 'a' && b <= 'z' || b >= 'A' && b <= 'Z' || b >= '0' && b <= '9' || b == '-' || b == '.') {
+			return false
+		}
+	}
+	return true
+}
+
 // Normalization covers scheme/host case, the default HTTPS port, empty paths
 // and percent-encoded unreserved characters. Queries/fragments are excluded
 // by RFC 9449. Reserved escapes and repeated slashes remain significant.
 func normalizeProofURL(raw string) (string, error) {
 	u, err := url.Parse(raw)
-	if err != nil || !strings.EqualFold(u.Scheme, "https") || u.Hostname() == "" || u.User != nil || u.Opaque != "" {
+	if err != nil || !strings.EqualFold(u.Scheme, "https") || !validProofHost(u) || u.User != nil || u.Opaque != "" {
 		return "", ErrDPoPProof
 	}
 	// Authorities use ASCII (IDNs must use their A-label/punycode form).
