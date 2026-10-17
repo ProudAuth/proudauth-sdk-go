@@ -38,15 +38,17 @@ python3 scripts/check-contracts.py
 go test -race ./...
 ```
 
-Install the development revision into your application:
+Install the module into your application:
 
 ```sh
-go get github.com/proudauth/proudauth-sdk-go@main
+go get github.com/proudauth/proudauth-sdk-go@latest
 ```
 
-Go records the resolved immutable revision in your `go.mod` and `go.sum`.
-Use a reviewed release tag when tagged releases become available. For local
-development, a Go workspace can include your application and this module.
+Go records the resolved immutable revision in your `go.mod` and `go.sum`:
+the newest release tag once one exists, the newest reviewed commit on `main`
+until then. The module requires Go 1.25 or later and is tested on Go 1.25,
+1.26 and 1.27. For local development, a Go workspace can include your
+application and this module.
 
 Imports use `github.com/proudauth/proudauth-sdk-go/verifier`, `/oidcclient`
 and `/admin`. They no longer use the monorepo's `github.com/proudauth/sdk/go`.
@@ -137,6 +139,21 @@ and rejected access-token cases used by the other SDKs, plus support-operation
 classification rules. Keys in test data are test-only. `testdata/manifest.json`
 pins their bytes; `SOURCE-MANIFEST.json` records the source checkout HEAD and
 working-tree input hashes. Standalone check results are recorded in [VALIDATION.md](VALIDATION.md).
+
+## Known limitations
+
+- **Emergency signing-key rotation needs a restart.** The verifier loads the
+  issuer's JWKS once and refreshes it only when a token names an unknown
+  `kid`; it has no key expiry, no `Refresh` or `RejectKey` method, and
+  `BoundedState` does not act on the server's `signing_key.rotated` event.
+  After an emergency rotation (`previous_key_compromised`), a key the server
+  has retired stays trusted by a running verifier until the process restarts.
+  Restart resource servers after an emergency rotation. SDK 0.3.0 adds key
+  expiry that honours the server's `Cache-Control`, explicit refresh and
+  rejection, and `signing_key.rotated` handling.
+- **No release tag yet.** `@latest` resolves to a pseudo-version of `main`
+  until the first tag; pin the resolved revision in `go.sum` and review
+  updates as commits.
 
 ## License and security
 

@@ -358,6 +358,23 @@ func TestSenderURLNormalization(t *testing.T) {
 	}
 }
 
+// TestSenderURLNormalizationRejectsHostlessAuthorities: net/url accepts
+// authorities such as "::443" (hostname ":") and ":443", which normalized to
+// "https://:/", a URL with no host that the second pass then refused. The
+// fuzz target found it on Go 1.26; the proof is invalid on the first pass.
+func TestSenderURLNormalizationRejectsHostlessAuthorities(t *testing.T) {
+	for _, input := range []string{"https://::443", "https://::443/x", "https://:443/x", "https://:/", "https://:", "https://a_b.example.test/", "https://[::1", "https://[not-an-ip]/"} {
+		if got, err := normalizeProofURL(input); !errors.Is(err, ErrDPoPProof) {
+			t.Errorf("%q normalized to %q (%v), want ErrDPoPProof", input, got, err)
+		}
+	}
+	for _, input := range []string{"https://[::1]/x", "https://[fe80::1%25lo0]/x", "https://api.example.test:8443/x", "https://127.0.0.1/x"} {
+		if _, err := normalizeProofURL(input); err != nil {
+			t.Errorf("%q refused: %v", input, err)
+		}
+	}
+}
+
 func FuzzSenderURLNormalization(f *testing.F) {
 	for _, seed := range []string{"https://api.example.test/orders?view=1", "https://[fe80::1%25lo0]:443/a%2fb", "https://host/%", "https://:443/"} {
 		f.Add(seed)
