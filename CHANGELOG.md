@@ -3,7 +3,15 @@
 All changes, including breaking changes, are documented here. Package releases
 will use semantic versioning; the initial 0.x API may change between minor versions.
 
-## Unreleased — 0.2.0 standalone extraction
+## [Unreleased]
+
+No changes recorded after 0.2.0.
+
+## [0.2.0] - 2026-10-18
+
+First release tag of the standalone module, `v0.2.0`. Go modules have no
+registry: `go get github.com/proudauth/proudauth-sdk-go@v0.2.0` fetches the tag
+through the Go module proxy and records its checksum.
 
 ### Known limitations
 
@@ -39,5 +47,8 @@ will use semantic versioning; the initial 0.x API may change between minor versi
 
 - Monorepo-relative test inputs and documentation links now work from this checkout.
 
-This is source preparation. No registry package or release tag has been published.
-The existing SDK behavior and 0.2.0 version identifiers are retained.
+The 0.2.0 version identifiers of the monorepo SDK are retained; `admin.Version`
+is `0.2.0`.
+
+[Unreleased]: https://github.com/proudauth/proudauth-sdk-go/compare/v0.2.0...main
+[0.2.0]: https://github.com/proudauth/proudauth-sdk-go/releases/tag/v0.2.0
