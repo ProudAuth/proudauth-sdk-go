@@ -15,8 +15,7 @@ First-party backend SDK for ProudAuth: verify access tokens, apply live
 revocation and support-access rules, integrate an OIDC backend-for-frontend,
 and automate the administration API.
 
-**Version 0.2.0, development snapshot.** No release tag exists yet.
-Minimum Go: **1.27.1**.
+**Version 0.2.0** (tag `v0.2.0`, 2026-10-18). Minimum Go: **1.25**.
 Apache-2.0. The only third-party module is `go-jose/v4` 4.1.5.
 
 [Documentation](https://proudauth.com/docs/) ·
@@ -41,14 +40,13 @@ go test -race ./...
 Install the module into your application:
 
 ```sh
-go get github.com/proudauth/proudauth-sdk-go@latest
+go get github.com/proudauth/proudauth-sdk-go@v0.2.0
 ```
 
-Go records the resolved immutable revision in your `go.mod` and `go.sum`:
-the newest release tag once one exists, the newest reviewed commit on `main`
-until then. The module requires Go 1.25 or later and is tested on Go 1.25,
-1.26 and 1.27. For local development, a Go workspace can include your
-application and this module.
+Go records the tag and its checksum in your `go.mod` and `go.sum`; the
+[CHANGELOG](CHANGELOG.md) lists every release. The module requires Go 1.25
+or later and is tested on Go 1.25, 1.26 and 1.27. For local development, a Go
+workspace can include your application and this module.
 
 Imports use `github.com/proudauth/proudauth-sdk-go/verifier`, `/oidcclient`
 and `/admin`. They no longer use the monorepo's `github.com/proudauth/sdk/go`.
@@ -151,9 +149,6 @@ working-tree input hashes. Standalone check results are recorded in [VALIDATION.
   Restart resource servers after an emergency rotation. SDK 0.3.0 adds key
   expiry that honours the server's `Cache-Control`, explicit refresh and
   rejection, and `signing_key.rotated` handling.
-- **No release tag yet.** `@latest` resolves to a pseudo-version of `main`
-  until the first tag; pin the resolved revision in `go.sum` and review
-  updates as commits.
 
 ## License and security
 
